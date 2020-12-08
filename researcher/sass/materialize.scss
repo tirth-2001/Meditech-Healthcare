@@ -1,0 +1,699 @@
+@charset "UTF-8";
+
+// Color
+@import "components/color-variables";
+@import "components/color-classes";
+
+// Variables;
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// components
+@import "components/global";
+@import "components/badges";
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/typography";
+@import "components/transitions";
+@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons";
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/chips";
+@import "components/materialbox";
+@import "components/forms/forms";
+@import "components/table_of_contents";
+@import "components/sidenav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/carousel";
+@import "components/tapTarget";
+@import "components/pulse";
+@import "components/datepicker";
+@import "components/timepicker";
+
+
+
+// Page styles starts here
+// custom fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+// Custom Classes For Re-Use
+
+.displayRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.errorMsg{
+    background-color: red;
+    color: white;
+    font-weight: 600;
+}
+
+body#loginBody{
+    background: #c6fced;
+    nav{
+        padding: 0 20px;
+        background-color: #e8ffff;
+        .nav-wrapper{
+            .sidenav-trigger{
+                i{
+                    color: gray;
+                }
+            }
+            img{
+                width: 150px;
+            }
+            ul{
+                li{
+                    a{
+                        color: rgb(139, 139, 139);
+                        font-size: 18px;
+                    }
+                    a:hover{
+                        color: rgb(54, 54, 54);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Login page styling
+#loginResearcher{
+    @extend .displayRow;
+    // height: 100vh;
+    .mainLgCard{
+        lottie-player{
+            width: 250px; height: 250px;
+        }
+        @extend .displayRow;
+        box-shadow: 0 19px 38px rgba(0,0,0,0.20), 0 15px 12px rgba(0,0,0,0.18);
+        border-radius: 10px;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0px 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        // width: 500px;
+        // height: 400px;
+        // margin: 0px 0;
+        
+        overflow: hidden;
+        .bgCard{
+            background-color: #34626c;
+            position: absolute;
+            height: 300px;
+            width: 100%;
+            bottom: 0;
+            z-index: 0;
+        }
+        #otpCard{
+            transform: translateX(150%);
+            visibility: hidden;
+            transition: 500ms;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #67B26F;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to top, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            z-index: 3;
+
+            @extend .displayRow;
+            flex-direction: column;
+            justify-content: flex-start;
+            .back_arrow_btn{
+                margin-left: 10px;
+                margin-top: 10px;
+                align-self: flex-start;
+                button{
+                    @extend .displayRow;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    background-color: white;
+                    color: teal;
+                }
+            }
+            .otpMainCard{
+                margin-top: 20px;
+                width: 95%;
+                height: 60%;
+                @extend .displayRow;
+                flex-direction: column;
+                .otpHeader{
+                    span{
+                        color: white;
+                        font-size: 28px;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        letter-spacing: 3px;
+                    }
+                }
+                @media screen and (max-width:472px){
+                    .otpHeader{
+                        span{
+                            font-size: 24px;
+                        }
+                    }
+                    .otpDesc{
+                    span{
+                        display: block;
+                        text-align: center;
+                    }
+                }
+                }
+                .otpDesc{
+                    font-size: 16px;
+                    color: rgb(250, 250, 250);
+                    #otpNumber{
+                        font-weight: 600;
+                    }
+                }
+                #wrapper {
+                    width: 100%;
+                    font-size: 1.5rem;
+                    text-align: center;
+                    box-sizing: border-box;
+                    
+                    #dialog {
+                      margin: 0px auto;
+                      padding: 10px 0px;
+                      width: 100%;
+                      display: inline-block;
+                      overflow: hidden;
+                      
+                      #form {
+                        max-width: 100%;
+                        margin: 25px auto 0;
+                        input {
+                          margin: 5px;
+                          text-align: center;
+                          line-height: 80px;
+                          font-size: 45px;
+                          border: solid 1px #ccc;
+                          box-shadow: 0 0 5px rgb(185, 185, 185) inset;
+                          outline: none;
+                          width: 50px;
+                          transition: all .2s ease-in-out;
+                          border-radius: 3px;
+                          background: white;
+                          &:focus {
+                            border-color: teal;
+                            box-shadow: 0 0 5px teal inset;
+                          }
+                          
+                          &::selection {
+                            background: white;
+                          }
+                        }
+                        button{
+                            margin-top: 50px;
+                            width: 180px;
+                            background: white;
+                            color: teal;
+                            font-weight: 600;
+                            border-radius: 50px;
+                            height: 50px;
+                        }
+                        
+                      }
+                      @media screen and (max-width:472px){
+                        form{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            flex-wrap: wrap;
+                            button{
+                                width: 90% !important;
+                            }
+                        }
+                    }
+                    }
+                  }
+            }
+            
+        }
+        #otpCard.isOpen{
+            transform: translateX(0);
+            visibility: visible;
+            transition: 500ms;
+        }
+        .mainCard{
+            z-index: 1;
+            background: white;
+            width: 400px;
+            padding: 20px 25px;
+            padding-bottom: 30px;
+            @extend .displayRow;
+            border-top: 4px blue solid;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12), 0 15px 18px rgba(0,0,0,0.10);
+            flex-direction: column;
+            align-items: center;
+            .contry{
+                align-self: flex-start;
+                margin-left: 30px;
+                // width: 100%;
+
+                span{
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+            .numInpt{
+                margin: 0;
+                form{
+                    // padding: 0
+                    .input-field{
+                        width: 100%;
+                        padding: 0;
+                        label{
+                            margin-left: 2rem;
+                        }
+                        margin-bottom: 0;
+                    }
+                    .desc{
+                        width: 100%;
+                        span{
+                            width: 100%;
+                            text-align: right;
+                            font-size: 14px;
+                            color: gray;
+                        }
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            .customNextBtn{
+                @extend .displayRow;
+                justify-content: space-between;
+                font-family: 'Roboto', sans-serif;
+                width: 60%;
+                height: 40px;
+                margin-top: 20px;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            .g_button{
+                font-family: 'Roboto', sans-serif;
+                @extend .displayRow;
+                width: 60%;
+                height: 40px;
+                margin-top: 20px;
+                background-color: white;
+                border: 1pt rgb(207, 207, 207) solid;
+                border-radius: 5px;
+                font-size: 16px;
+                img{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                }
+                // opacity: 0.5;
+                filter: contrast(95%);
+                opacity: 0.9;
+                transition: 500ms;
+            }
+            .g_button:hover{
+                cursor: pointer;
+                opacity: 1;
+                transition: 500ms;
+                filter: contrast(100%);
+            }
+            
+        }
+        
+    }
+    @media screen and (max-width: 492px){
+        .mainLgCard{
+            margin: 0 20px;
+            .mainCard{
+                width: auto;
+                .g_button,.customNextBtn{
+                    width: 90%;
+                }
+            }
+        }
+    }   
+}
+@media screen and (max-width: 425px){
+    #loginResearcher{
+        lottie-player{
+            width: 150px; height: 150px;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    .mainLgCard{
+        padding: 20px 10px;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // bottom: 0;
+        // left: 0;
+        // margin: auto;
+        // margin: 0 0px;
+        height: max-content;
+        width: 90%;
+        .bgCard{
+            height: 50%;
+        }
+        .mainCard{
+            width: auto;
+        }
+    }
+    }
+}
+
+
+
+// Researcher's page styling
+
+
+// Pre loader styling
+.customPreloader{
+    @extend .displayRow;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    z-index: 1003;
+}
+.customPreloader.disabledCustomPreloader{
+    opacity: 0;
+    transition: 1000ms;
+}
+
+
+// Navigaiton Bar
+
+#navbar-main{
+    @extend .z-depth-2;
+    background-color: rgb(230, 230, 230);
+    border-radius: 0 0 30px 30px;
+
+    .nav-wrapper{
+        .sidenav-trigger .material-icons{
+            color: #006edd;
+            font-weight: 600;
+        }
+        .brand-logo img{
+            width: 190px;
+        }
+
+        @media screen and (max-width: 425px){
+            .brand-logo img{
+                width: 150px;
+            }
+        }
+        @media screen and (max-width: 600px){
+            .brand-logo img{
+                width: 170px;
+            }
+        }
+        ul>li a{
+            color: #006edd;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+    @media screen and (min-width: 768px){
+        .nav-wrapper{
+            padding: 0 40px;
+        }
+    }
+}
+
+//Active label
+.activeLable{
+    -webkit-transform: translateY(-14px) scale(0.8) !important;
+transform: translateY(-14px) scale(0.8) !important;
+-webkit-transform-origin: 0 0 !important;
+transform-origin: 0 0 !important;
+}
+
+#researchBody{
+    height: 100%;
+    nav.pushpin-demo-nav .nav-wrapper .brand-logo img{
+        width: 160px;
+    }
+    nav.pushpin-demo-nav .nav-wrapper a.brand-logo:hover{
+        cursor: pointer;
+    }
+    @media screen and (max-width: 600px){
+        nav.pushpin-demo-nav .nav-wrapper .brand-logo img{
+            width: 140px;
+        }
+    }
+    .block{
+        .pushpin-demo-nav{
+            z-index: 1;
+        }
+        height: 100%;
+        .pushpinBody#blueBlock,.pushpinBody#orangeBlock{
+            flex-direction: column;
+            justify-content: center;
+        }
+        .pushpinBody{
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            overflow-y: scroll;
+            z-index: 0;
+            @extend .displayRow ;
+            height: 100%;
+            width: 100%;
+            flex-wrap: wrap;
+            .cardWrapper.firstRow{
+                margin-top: 50px;
+            }
+            .cardWrapper{
+                // margin-top: 70px;
+                width: 49%;
+                @extend .displayRow;
+                .card{
+                    width: 300px;
+                    height: 230px;
+                    padding: 20px;
+                    border-radius: 10px;
+                    @extend .displayRow;
+                    flex-direction: column;
+                    box-shadow: 0 19px 18px rgba(0,0,0,0.08) , 0 9px 12px rgba(0,0,0,0.09);
+                    .cdHeader,.cdNum,.cdIcon{
+                        margin: 5px 0;
+                    }
+                    .cdHeader{
+                        font-size: 22px;
+                        font-weight: 600;
+                        color: gray;
+                        height: 66px;
+                    }
+                    .cdNum{
+                        font-size: 35px;
+                        font-weight: 600;
+                    }
+                    .cdIcon{
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        @extend .displayRow;
+                        color: white;
+                        i{
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+            @media screen and (max-width:669px){
+                .cardWrapper{
+                    .card{
+                        width: 200px;
+                        height: 175px;
+                        padding: 10px;
+                        .cdHeader{
+                            font-size: 18px;
+                        }
+                        .cdNum{
+                            font-size: 24px;
+                        }
+                        .cdIcon{
+                            height: 30px;
+                            width: 30px;
+                            i{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            @media screen and (max-width:425px){
+                .cardWrapper{
+                    width: auto;
+                    .card{
+                        width: 200px;
+                        height: 200px;
+                        // padding: 10px 5px;
+                        .cdHeader{
+                            // font-size: 16px;
+                            span{
+                                text-align: center;
+                            }
+                        }
+                        // .cdNum{
+                        //     font-size: 20px;
+                        // }
+                        // .cdIcon{
+                        //     height: 25px;
+                        //     width: 25px;
+                        //     i{
+                        //         font-size: 20px;
+                        //     }
+                        // }
+                    }
+                }
+                .cardWrapper:nth-child(2){
+                    margin-top: 0;
+                }
+            }
+            .cardWrapper:nth-child(1){
+                .card{
+                    .cdIcon{
+                        background-color: blue;
+                    }
+                }
+            }
+            .cardWrapper:nth-child(2){
+                .card{
+                    .cdIcon{
+                        background-color: orange;
+                    }
+                }
+            }
+            .cardWrapper:nth-child(3){
+                .card{
+                    .cdIcon{
+                        background-color: green;
+                    }
+                }
+            }
+            .cardWrapper:nth-child(4){
+                .card{
+                    .cdIcon{
+                        background-color: purple;
+                    }
+                }
+            }
+
+            // blue block starts here
+            .disHeader{
+                h1{
+                    color: white;
+                    font-weight: 600;
+                    text-align: center;
+                    margin: 0;
+                    font-size: 44px;
+                }
+            }
+            @media screen and (max-width:425px){
+                .disHeader{
+                    h1{
+                        font-size: 30px;
+                    }
+                }
+            }
+            #disChart{
+                margin-top: 40px;
+                width: 600px;
+                height: 400px;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4);
+            }
+            // orange block starts here
+            #aiAcuChart{
+                margin-top: 40px;
+                width: 600px;
+                height: 400px;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4);
+            }
+            @media screen and (max-width: 572px){
+                #disChart{
+                    width: 90%;
+                }
+                #aiAcuChart{
+                    width: 90%;
+                }
+            }
+            // purple starts here
+            
+            
+        }
+        .pushpinBody#purpleBlock{
+            .disHeader{
+                margin-top: 20px;
+            }
+            height: 100%;
+            justify-content: center;
+            overflow-y: scroll;
+            .imgDataCards{
+                width: 100%;
+                // margin-top: 40px;
+                flex-wrap: wrap;
+                @extend .displayRow;
+                .card{
+                    @extend .displayRow;
+                    border-top: 5px yellow solid;
+                    flex-direction: column;
+                    padding: 10px 20px;
+                    border-radius: 3px 3px 10px 10px;
+                    height: 250px;
+                    width: 250px;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                    .i_d_header{
+                        font-size: 24px;
+                        width: 100%;
+                        text-align: center;
+                        width: 100%;
+                    }
+                    button{
+                        z-index: 0;
+                        width: 100%;
+                        margin: 5px 0;
+                        font-size: 18px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

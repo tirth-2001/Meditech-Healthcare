@@ -1,0 +1,850 @@
+@charset "UTF-8";
+
+// Color
+@import "components/color-variables";
+@import "components/color-classes";
+
+// Variables;
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// components
+@import "components/global";
+@import "components/badges";
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/typography";
+@import "components/transitions";
+@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons";
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/chips";
+@import "components/materialbox";
+@import "components/forms/forms";
+@import "components/table_of_contents";
+@import "components/sidenav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/carousel";
+@import "components/tapTarget";
+@import "components/pulse";
+@import "components/datepicker";
+@import "components/timepicker";
+
+// Custom Classes For Re-Use
+
+.displayRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+// Custom Css Starts Here
+
+
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #006edd;
+    -webkit-box-shadow: 0 1px 0 0 #006edd;
+    box-shadow: 0 1px 0 0 #006edd;
+}
+
+
+// Navigaiton Bar
+
+#navbar-main{
+    @extend .z-depth-2;
+    background-color: rgb(230, 230, 230);
+    border-radius: 0 0 30px 30px;
+
+    .nav-wrapper{
+        .sidenav-trigger .material-icons{
+            color: #006edd;
+            font-weight: 600;
+        }
+        .brand-logo img{
+            width: 190px;
+        }
+
+        @media screen and (max-width: 425px){
+            .brand-logo img{
+                width: 150px;
+            }
+        }
+        @media screen and (max-width: 600px){
+            .brand-logo img{
+                width: 170px;
+            }
+        }
+        ul>li a{
+            color: #006edd;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+    @media screen and (min-width: 768px){
+        .nav-wrapper{
+            padding: 0 40px;
+        }
+    }
+}
+
+//Active label
+.activeLable{
+    -webkit-transform: translateY(-14px) scale(0.8) !important;
+transform: translateY(-14px) scale(0.8) !important;
+-webkit-transform-origin: 0 0 !important;
+transform-origin: 0 0 !important;
+}
+
+// Login Card Section
+
+#login_section{
+    @extend .displayRow;
+    height: 80vh;
+
+    .activeToggleCard{
+        @extend .blue,.lighten-1;
+        color: white;
+    }
+
+    .loginCard{
+        @extend .card,.displayRow;
+        border: 1pt rgb(177, 177, 177) solid;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0px 0;
+        height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 0 10px;
+        // width: 50%;
+
+        .lgActive{
+            @extend .displayRow;
+            flex-direction: column;
+            justify-content: space-between;
+
+            form{
+                @extend .displayRow,.container;
+                padding: 0 20px;
+                flex-direction: column;
+                margin: 20px 0;
+                width: auto;
+                input{
+                    width: 400px;
+                    color: rgb(61, 61, 61);
+                }
+                label{
+                    margin-left: -10px;
+                }
+                .forgPass{
+                    width: 100%;
+                    @extend .displayRow;
+                    justify-content: flex-end;
+                }
+                @media screen and (max-width:544px){
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+            button{
+                margin: 20px 0;
+            }
+        }
+        .lgDisabled{
+            display: none;
+        }
+        .lgBtn{
+            width: 100%;
+            @extend .displayRow;
+            justify-content: space-evenly;
+            font-size: 22px;
+            height: 50px;
+            border-bottom: 1px gray solid;
+            .loginBtn{
+                width: 50%;
+                text-align: center;
+                height: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .loginBtn:last-child{
+                border-left: 1px gray solid;
+            }
+        }
+        .lgBtn:hover{
+            cursor: pointer;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .loginCard{
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .loginCard{
+            width: 90%;
+        }
+    }
+}
+
+// My Profile Modal Styling Starts Here
+
+#myProfileModal.modal{
+    top: 5% !important;
+    height: 90%;
+    max-height: 90%;
+    width: 90%;
+    .modal-content{
+        padding: 0;
+        .nav-wrapper{
+            h5{
+                margin: 0;
+                padding: 14px;
+            }
+        }
+        form{
+            padding: 0 24px;
+            margin-top: 20px;
+            label.activeLable{
+                -webkit-transform: translateY(-14px) scale(0.8);
+    transform: translateY(-14px) scale(0.8);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+            }
+        }
+    }
+}
+
+
+// Dashboard Page Styling Starts Here
+
+#dashboard{
+    .dashboard{
+        .modal{
+            top: 5% !important;
+            height: 90%;
+            max-height: 90%;
+            width: 90%;
+            .modal-content{
+                padding:0;
+                .nav-wrapper{
+                    a:hover{
+                        cursor: pointer;
+                    }
+                    padding: 0 24px;
+                    @media screen and (max-width:328px){
+                        .breadcrumb{
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .mainModalCnt{
+                    @extend .displayRow;
+                    flex-direction: column;
+                    width: 100%;
+                    padding: 24px;
+                    .modalProgressBar{
+                        @extend .displayRow;
+                        width: 100%;
+                        .progImg{
+                            background-color: gray;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            width: 80px;
+                            height: 80px;
+                            @extend .displayRow;
+                            img{
+                                width: 70%;
+                                height: 70%;
+                            }
+                        }
+                        .material-icons{
+                            font-size: 80px;
+                            color: gray;
+                        }
+                        @media screen and (max-width:492px){
+                            .progImg{
+                                width: 60px;
+                                height: 60px;
+                            }
+                            .material-icons{
+                                font-size: 50px;
+                            }
+                        }
+                        @media screen and (max-width:372px){
+                            .progImg{
+                                width: 55px;
+                                height: 55px;
+                            }
+                            .material-icons{
+                                font-size: 40px;
+                            }
+                        }
+                        @media screen and (max-width:328px){
+                            .progImg{
+                                width: 50px;
+                                height: 50px;
+                            }
+                            .material-icons{
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                    .modalProgressBar#prog_1{
+                        .progImg.progImg1{
+                            background-color: #006edd;
+                        }
+                    }
+                    .modalProgressBar#prog_2{
+                        .progImg.progImg1{
+                            background-color: #006edd;
+                        }
+                        .progImg.progImg2{
+                            background-color: #006edd;
+                        }
+                        .material-icons#icon_1{
+                            color: #1976d2 ;
+                        }
+                    }
+                    .modalProgressBar#prog_3{
+                        .progImg.progImg1{
+                            background-color: #006edd;
+                        }
+                        .progImg.progImg2{
+                            background-color: #006edd;
+                        }
+                        .material-icons#icon_1{
+                            color: #1976d2 ;
+                        }
+                        .progImg.progImg3{
+                            background-color: #006edd;
+                        }
+                        .material-icons#icon_2{
+                            color: #1976d2 ;
+                        }
+                    }
+                    form{
+                        margin: 30px 0;
+                        width: 90%;
+                        h5{
+                            margin: 20px 0;
+                            font-size: 20px;
+                        }
+                        @media screen and (max-width:425px){
+                            h5{
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    @media screen and (max-width:425px){
+                        form#modal1Form{
+                            width: 100%;
+                            .show-on-medium-and-down{
+                                display: none;
+                            }
+                        }
+                    }
+                    form#modal2Form{
+                        .file-field{
+                            margin: 0;
+                            .btn{
+                                height: 3rem;
+                                line-height: 3rem;
+                            }
+                        }
+                        .predictBtn{
+                            height: 100%;
+                            .btn{
+                                height: 3rem;
+                                line-height: 3rem;
+                                width: 50%;
+                            }
+                        }
+                        .s12.predictBtn>.btn{
+                            width: 100%;
+                        }
+                        .aiOutHeader{
+                            font-size: 24px;
+                            font-weight: bold;
+                        }
+                        @media screen and (max-width:768px){
+                            .aiOutRow{
+                                margin-top: 20px;
+                                .aiOutHeader{
+                                    font-size: 20px;
+                                }
+                                .aiOutput{
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                        @media screen and (max-width:458px){
+                            .aiOutRow{
+                                margin-top: 20px;
+                                .aiOutHeader{
+                                    font-size: 16px;
+                                }
+                                .aiOutput{
+                                    font-size: 16px;
+                                    text-align: right;
+                                }
+                            }
+                        }
+                        .aiOutput{
+                            margin-left: 3%;
+                            font-size: 22px;
+                        }
+                        .isthisOutCorrect{
+                            @extend .displayRow;
+                            justify-content: flex-start;
+                            .correctOut{
+                                font-size: 18px;
+                                color: rgb(82, 82, 82);
+                            }
+                            @media screen and (max-width:425px){
+                                .correctOut{
+                                    font-size: 14px;
+                                }
+                            }
+                            p{
+                                margin-left: 3%;
+                                span{
+                                    color: black;
+                                }
+                                [type="radio"]:checked + span.correctNo:after, [type="radio"].with-gap:checked + span.correctNo:after{
+                                    background-color: red;
+                                    border-color: red;
+                                }
+                                [type="radio"]:checked + span.correctNo:after, [type="radio"].with-gap:checked + span.correctNo:before, [type="radio"].with-gap:checked + span.correctNo:after {
+                                    border: 2px solid red;
+                                }
+                            }
+
+                        }
+                    }
+                    .aiOutHeader{
+                        font-size: 24px;
+                        font-weight: bold;
+                    }.aiOutput{
+                        margin-left: 3%;
+                        font-size: 22px;
+                    }
+                    .nextBtns{
+                        @extend .displayRow;
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+        .floatingAddBtn{
+            @extend .displayRow;
+            position: relative;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            height: 50px;
+            width: 50px;
+            span{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 400px){
+            .floatingAddBtn:hover{
+                width: 200px;
+                height: 50px;
+                border-radius: 50px;
+                span{
+                    display: block;
+                }
+                .material-icons{
+                    line-height: 0;
+                    width: auto;
+                    margin: 0 10px;
+                }
+            }
+        }
+
+        .dbHeader{
+            font-size: 30px;
+            font-weight: 600;
+            margin-top: 40px;
+        }
+
+        .card_container{
+            @extend .displayRow;
+            margin: 20px 0;
+            margin-top: 50px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            .ptCard{
+                @extend .displayRow;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin: 0 20px;
+                margin-bottom: 30px;
+                width: 250px;
+                height: 240px;
+                border-radius: 20px;
+                overflow: hidden;
+                .mainHeader{
+                    width: 100%;
+                    height: 100px;
+                    @extend .displayRow;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    text-align: left;
+                    .ptCardHeader{
+                        margin-top: 20px;
+                        padding: 0px 10px;
+                        // padding-top: 15px;
+                        font-size: 24px;
+                        font-weight: 600;
+                    }
+                    .ptCardSubHeader{
+                        margin-bottom: 10px;
+                        padding: 2px 10px;
+                        font-size: 18px;
+                        color: gray;
+                        display: block;
+                        font-weight: 500;
+                    }
+                }
+                .ptCardDisease{
+                    padding: 0 10px;
+                    margin: 10px 0;
+                    .ptCardCateg{
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: rgb(73, 72, 72);
+                    }
+                    .diseaseName{
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: black;
+                    }
+                }
+                .ptCardCheckUp{
+                    padding: 0 10px;
+                    margin-top: 10px;
+                    .ptCardCateg{
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: rgb(73, 72, 72);
+                    }
+                    .checkupDate{
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: black;
+                    }
+                }
+                .ptCardEdit{
+                    margin-top: 20px;
+                    align-self: center;
+                    height: 28px;
+                    @extend .displayRow;
+                }
+            }
+            @media screen and (max-width: 832px){
+                .ptCard{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        @media screen and (max-width: 832px){
+            .card_container{
+                justify-content: center;
+            }
+        }
+    }
+}
+
+
+// Patient Page Styling starts here
+
+
+.top_cards{
+    margin: 50px 0;
+    // width: 100%;
+    @extend .displayRow;
+    .row_top_cards{
+        @extend .displayRow;
+        width: 90%;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        .analytic_card{
+            width: 300px;
+            padding: 10px 20px;
+            @extend .displayRow;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            border-radius: 20px;
+            height: 250px;
+            box-shadow: 10px 24px 48px rgba(0,0,0,0.08), 0 10px 10px rgba(0,0,0,0.06);
+            .anaCardHeader>h4{
+                font-size: 20px;
+                color: gray;
+                font-weight: 600;
+            }
+            .anaNumbers{
+                font-size: 30px;
+                font-weight: 600;
+            }
+            .anaIcon{
+                width: 55px;
+                height: 55px;
+                background-color: gray;
+                border-radius: 50%;
+                background-color: blue;
+                @extend .displayRow;
+                i{
+                    font-size: 34px;
+                    color: white;
+                }
+            }
+        }
+        .analytic_card>div{
+            margin: 5px 0px;
+        }
+        .analytic_card:nth-child(2){
+            .anaIcon{
+                background-color: rgb(252, 206, 0);
+            }
+        }
+        .analytic_card:nth-child(3){
+            .anaIcon{
+                background-color: rgb(0, 216, 0);
+            }
+        }
+    }
+}
+
+.bottom_cards{
+    @extend .displayRow;
+    width: 100%;
+    margin: 40px 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    .card_left,.card_right{
+        // @extend .displayRow;
+        // flex-direction: column;
+        // justify-content: space-evenly;
+        // align-items: flex-start;
+        height: 520px;
+        border-radius: 20px;
+        box-shadow: 10px 24px 48px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.06);
+    }
+    .card_left{
+        width: 60%;
+        .card_l_header{
+            padding: 20px 20px;
+            .small_head{
+                span{
+                    margin: 20px 0;
+                    font-size: 20px;
+                    font-weight: normal;
+                    color: gray;
+                }
+            }
+            .big_head{
+                span{
+                    margin: 20px 0;
+                    font-size: 34px;
+                    font-weight: 600;
+                }
+            }
+        }
+        #citychart{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 872px){
+        .card_left{
+            width: 90%;
+            margin-bottom: 50px;
+        }
+    }
+    .card_right{
+        width: 350px;
+        background-color: #1A1053;
+        .card_r_header{
+            padding: 20px 20px;
+            .small_head{
+                span{
+                    margin: 20px 0;
+                    font-size: 18px;
+                    font-weight: normal;
+                    color: rgb(197, 194, 194);
+                }
+            }
+            .big_head{
+                span{
+                    margin: 20px 0;
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: white;
+                }
+            }
+        }
+        .pat_data_table{
+            width: 100%;
+            @extend .displayRow;
+            flex-direction: column;
+            .pat_d_t_header{
+                @extend .displayRow;
+                background-color: #DAE3F3;
+                padding: 5px 10px;
+                width: 100%;
+                justify-content: space-evenly;
+                span{
+                    font-size: 16px;
+                }
+                span.d_t_head_name{
+                    width: 60%;
+                    text-align: center;
+                }
+                span.d_t_head_dies{
+                    width: 40%;
+                    text-align: center;
+                }
+            }
+            .pat_d_t_data{
+                height: 310px;
+                width: 100%;
+                color: white;
+                font-size: 20px;
+                overflow-y: scroll;
+                .row_data{
+                    margin: 10px 0;
+                    width: 100%;
+                    border-bottom: 1px solid #cbccce;
+                    @extend .displayRow;
+                    justify-content: space-evenly;
+                    padding: 5px 0;
+                    .d_t_name_full{
+                        @extend .displayRow;
+                        justify-content: flex-start;
+                        width: 50%;
+                        .d_t_name{
+                            padding: 0 20px;
+                        }
+                    }
+                    .d_t_dies{
+                        width: 30%;
+                        text-align: center;
+                    }
+                }
+            }
+            .pat_d_t_data::-webkit-scrollbar {
+                width: 10px;
+              }
+               
+              .pat_d_t_data::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                margin-top: 5px;
+              }
+               
+              .pat_d_t_data::-webkit-scrollbar-thumb {
+                background-color: darkgrey;
+                border-radius: 10px;
+              }
+              .pat_d_t_btn{
+                margin-top: 10px;
+                background-color: white;
+                color: black;
+                border-radius: 20px;
+                font-weight: 600;
+                font-size: 15px;
+              }
+        }
+    }
+}
+
+#btm_sheet_modal{
+    .modal-content{
+        @extend .displayRow;
+        flex-direction: column;
+        .bt_row{
+            @extend .displayRow;
+            justify-content: space-between;
+            width: 90%;
+            border: 1px rgb(204, 204, 204) solid;
+            padding: 5px 10px;
+            margin: 5px 0;
+            flex-wrap: wrap;
+            align-items: center;
+            .temp_row{
+                @extend .displayRow;
+                justify-content: flex-start;
+                .bt_icon{
+                    align-self: flex-start;
+                    border-radius: 50%;
+                    background-color: green;
+                    height: 30px;
+                    width: 30px;
+                    margin: 0 10px;
+                    @extend .displayRow;
+                    i{
+                        font-size: 26px;
+                        color: white;
+                    }
+                }
+                .bt_info{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    flex-wrap: wrap ;
+                    span{
+                        margin: 0 5px;
+                        font-size: 16px;
+                    }
+                }
+                @media screen and (max-width:562px){
+                    .bt_info{
+                        span{
+                            font-size:  14px;
+                        }
+                    }
+                }
+            }
+        }
+        @media screen and (max-width:562px){
+            .bt_row{
+                width: 100%;
+                justify-content: space-evenly;
+            }
+        }
+    }
+}
+
+// Pre loader styling
+.customPreloader{
+    @extend .displayRow;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    z-index: 1003;
+}
+.customPreloader.disabledCustomPreloader{
+    opacity: 0;
+    transition: 1000ms;
+}

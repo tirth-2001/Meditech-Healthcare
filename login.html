@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="sass/materialize.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="shortcut icon" href="images/logo_1.png" type="image/png">
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav id="navbar-main">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo black-text"><img src="images/header_logo.png" alt="Logo"></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" id="logout-1">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">Home</a></li>
+        <li><a href="#" id="logout-2">Logout</a></li>
+    </ul>
+
+    <section class="section" id="login_section">
+        <div class="loginCard">
+            <div class="lgBtn">
+                <a onclick="toggleLogin(true)" class="loginBtn activeToggleCard" id="toggleBtnCard1">Log In</a>
+                <a onclick="toggleLogin(false)" class="loginBtn" id="toggleBtnCard2">Sign Up</a>
+            </div>
+            <div class="lgActive" id="loginFormCard">
+                <form action="#" class="lgForm container" id="login-form">
+                    <!-- <div class="row"> -->
+                    <div class="input-field col s12">
+                        <input required id="login-email" type="email" class="validate">
+                        <label for="login-email">Email</label>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row"> -->
+                    <div class="input-field col s12">
+                        <input required id="login-password" type="password" class="validate">
+                        <label for="login-password">Password</label>
+                    </div>
+                    <!-- </div> -->
+
+                    <button class="btn waves-effect waves-light blue darken-1" type="submit" name="login">Login
+                        <i class="material-icons right">lock</i>
+                    </button>
+                    <div class="forgPass">
+                        <a data-target="forgotPassModal" class="modal-trigger">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+            <div class="modal" id="forgotPassModal">
+                <div class="modal-content">
+                    <h5>Enter email to send password reset link:</h5>
+                    <form action="login.html" id="forgot-form">
+                        <div class="input-field row">
+                            <input required id="forgot-email" type="email" name="forgot_email" class="validate">
+                            <label for="forgot-email">Email</label>
+                        </div>
+                        <button class="btn waves-effect waves-light blue darken-1" type="submit">Submit
+                            <i class="material-icons right">check_circle</i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="lgActive lgDisabled" id="signUpFormCard">
+                <form action="#" class="lgForm" id="signup-form">
+                    <!-- <div class="row"> -->
+                    <div class="input-field col s12">
+                        <input required id="signup-name" type="text" class="validate">
+                        <label for="signup-name">Name</label>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row"> -->
+                    <div class="input-field col s12">
+                        <input required id="signup-email" type="email" class="validate">
+                        <label for="signup-email">Email</label>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row"> -->
+                    <div class="input-field col s12">
+                        <input required id="signup-password" type="password" class="validate">
+                        <label for="signup-password">Password</label>
+                    </div>
+                    <!-- </div> -->
+                    <button class="btn waves-effect waves-light blue darken-1" type="submit" name="login">Sign Up
+                        <i class="material-icons right">check_circle</i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Toastr CDN -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+    <script>
+        // For Side Navbar on smaller screen
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+        // For forgot password modal
+        $(document).ready(function () {
+            $('.modal').modal({
+                inDuration: 500,
+                outDuration: 500,
+                preventScrolling: false,
+                dismissible: true,
+            });
+        });
+    </script>
+    <script>
+        function toggleLogin(login) {
+            if (login) {
+                document.getElementById("loginFormCard").classList.remove("lgDisabled");
+                document.getElementById("signUpFormCard").classList.add("lgDisabled");
+                document.getElementById("toggleBtnCard1").classList.add("activeToggleCard");
+                document.getElementById("toggleBtnCard2").classList.remove("activeToggleCard");
+            } else {
+                document.getElementById("loginFormCard").classList.add("lgDisabled");
+                document.getElementById("signUpFormCard").classList.remove("lgDisabled");
+                document.getElementById("toggleBtnCard1").classList.remove("activeToggleCard");
+                document.getElementById("toggleBtnCard2").classList.add("activeToggleCard");
+            }
+
+        }
+    </script>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB8v8pD2b70NHbEVcR25KO6opvP_s8BYyw",
+            authDomain: "pdpu-medical-website.firebaseapp.com",
+            databaseURL: "https://pdpu-medical-website.firebaseio.com",
+            projectId: "pdpu-medical-website",
+            storageBucket: "pdpu-medical-website.appspot.com",
+            messagingSenderId: "216334365459",
+            appId: "1:216334365459:web:14c70ae25afcab9b6ce0e6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // update firestore settings
+        db.settings({
+            timestampsInSnapshots: true
+        });
+    </script>
+
+    <!-- Local Scripts -->
+
+    <script src="js/auth.js"></script>
+    <!-- <script src="js/user.js"></script> -->
+    <!-- <script src="js/profile.js"></script> -->
+    <!-- <script src="js/patient.js"></script> -->
+</body>
+
+</html>

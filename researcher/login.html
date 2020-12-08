@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Login</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="sass/materialize.css" media="screen,projection" />
+    <link rel="shortcut icon" href="images/Asset 1 (1).png" type="image/png">
+    <style>
+        #mainCanvas {
+            background: transparent;
+            position: absolute;
+            width: 100%;
+            /* height: 100%; */
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body id="loginBody">
+    <canvas id="mainCanvas"></canvas>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img src="images/research_logo (1).png" alt="Researcher logo"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#">Doctor's Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">Doctor's Login</a></li>
+    </ul>
+    <section id="loginResearcher">
+        <div class="card mainLgCard">
+            <div id="lgAnimation">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json"
+                    background="transparent" speed="1" loop autoplay>
+                </lottie-player>
+            </div>
+            <div class="bgCard"></div>
+            <div class="mainCard" id="mainCard">
+                <div id="recaptcha-container"></div>
+                <div class="contry">
+                    <span>India (+91)</span>
+                </div>
+                <div class="numInpt row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="number" class="validate" required>
+                                <label for="icon_telephone">Telephone</label>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <span>You will recieve an OTP on this number.</span>
+                        </div>
+                    </form>
+
+                </div>
+                <button onclick="toogleCard()" class="btn waves-effect waves-light customNextBtn">Next <i
+                        class="material-icons">arrow_forward</i></button>
+                <button class="g_button" id="googleSignIn">
+                    <img src="images/google-png.png" alt="google logo">
+                    <span>Sign in with Google</span>
+                </button>
+            </div>
+            <div id="otpCard" class="">
+                <div class="back_arrow_btn">
+                    <button onclick="toogleCard()" class=" btn waves-effect waves-light"><i
+                            class="material-icons">arrow_back</i></button>
+                </div>
+                <div class="otpMainCard">
+
+                    <div class="otpHeader">
+                        <span>Verification Code</span>
+                    </div>
+                    <div class="otpDesc">
+                        <span>Please type verification code sent to </span>
+                        <span id="otpNumber"></span>
+                    </div>
+                    <div id="wrapper">
+                        <div id="dialog">
+                            <form id="form">
+                                <input type="text" maxLength="1" size="1" min="0" max="9" id="n1" pattern="[0-9]{1}"
+                                    required />
+                                <input type="text" maxLength="1" size="1" min="0" max="9" id="n2" pattern="[0-9]{1}"
+                                    required />
+                                <input type="text" maxLength="1" size="1" min="0" max="9" id="n3" pattern="[0-9]{1}"
+                                    required />
+                                <input type="text" maxLength="1" size="1" min="0" max="9" id="n4" pattern="[0-9]{1}"
+                                    required />
+                                <input type="text" maxLength="1" size="1" min="0" max="9" id="n5" pattern="[0-9]{1}"
+                                    required />
+                                <input type="text" maxLength="1" size="1" min="0" max="9" id="n6" pattern="[0-9]{1}"
+                                    required />
+                                <button class="btn waves-effect" id="verifycode">Verify</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-------------- JS files ------------------------>
+
+    <script src="animation/animate.js"></script>
+
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Toastr CDN -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+    <!-- custom JS scripts -->
+
+    <!-- <script>
+        function toogleCard() {
+            let maincard = document.getElementById('mainCard');
+            let otpcard = document.getElementById('otpCard');
+            let number = document.getElementById('icon_telephone').value;
+            if (otpcard.classList.contains('isOpen') == false) {
+                if (number == "" || number == null) {
+                    M.toast({
+                        html: 'Enter a Valid Number!',
+                        classes: "errorMsg"
+                    })
+                    return;
+                }
+                if (number.length == 10) {
+                    M.toast({
+                        html: 'Number must be a 10 digit number!',
+                        classes: "errorMsg"
+                    })
+                    return;
+                }
+            }
+            otpcard.classList.toggle('isOpen');
+            document.getElementById('otpNumber').innerHTML = "+91 " + number;
+        }
+    </script>
+     -->
+    <script>
+        $('#form > input').keyup(function () {
+            if (this.value.length >= $(this).attr('maxlength')) {
+                $(this).next().focus();
+            }
+        });
+    </script>
+    <script>
+        // For Side Navbar on smaller screen
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB8v8pD2b70NHbEVcR25KO6opvP_s8BYyw",
+            authDomain: "pdpu-medical-website.firebaseapp.com",
+            databaseURL: "https://pdpu-medical-website.firebaseio.com",
+            projectId: "pdpu-medical-website",
+            storageBucket: "pdpu-medical-website.appspot.com",
+            messagingSenderId: "216334365459",
+            appId: "1:216334365459:web:14c70ae25afcab9b6ce0e6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // update firestore settings
+        db.settings({
+            timestampsInSnapshots: true
+        });
+    </script>
+
+    <!-- Local Scripts -->
+
+    <script src="scripts/auth.js"></script>
+    <!-- <script src="js/user.js"></script> -->
+    <!-- <script src="js/profile.js"></script> -->
+    <!-- <script src="js/patient.js"></script> -->
+</body>
+
+</html>
