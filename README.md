@@ -44,7 +44,7 @@
 
 - ### Front-end
     <div style="display:flex;align-items:center"><img width="15" src="images/icons8-html-5-48.png" style="margin-right:5px" />  HTML5 </div>
-    <div style="display:flex;align-items:center"><img width="15" src="images/icons8-css3-48.png" style="margin-right:5px" />  CSS3 </div>
+    <div style="display:flex;align-items:center"><img width="15" src="images/icons8-css3-48.png" style="margin-right:5px" />  CSS3 & SCSS </div>
     <div style="display:flex;align-items:center"><img width="15" src="images/icons8-javascript-48.png" style="margin-right:5px" />  Javscript </div>
     <div style="display:flex;align-items:center"><img width="15" src="images/icons8-wordpress-48.png" style="margin-right:5px" />  Wordpress </div>
     <div style="display:flex;align-items:center"><img width="15" src="images/matirialze.png" style="margin-right:5px" />  Materialize </div>
@@ -59,11 +59,13 @@
 
 <br>
 
-- ### Miscellaneous
+- ### Special Features
     <div style="display:flex;align-items:center"><img width="15" src="images/icons8-google-48.png" style="margin-right:5px" />  Google Authentication</div>
     <div style="display:flex;align-items:center"><img width="15" src="images/icons8-chat-48.png" style="margin-right:5px" />  Email Notification</div>
     <div style="display:flex;align-items:center"><img width="15" src="images/bot.png" style="margin-right:5px" /> Live Chatbot</div>
     <div style="display:flex;align-items:center"><img width="15" src="images/icons8-secure-cloud-48.png" style="margin-right:5px" /> Secured Data</div>
+    <div style="display:flex;align-items:center"><img width="15" src="images/notification.png" style="margin-right:5px" /> Web Push Notification</div>
+    <div style="display:flex;align-items:center"><img width="15" src="images/speedometer.png" style="margin-right:5px" /> Performance Analytics</div>
 
 <!-- USAGE EXAMPLES -->
 

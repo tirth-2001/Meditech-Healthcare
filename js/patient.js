@@ -8,9 +8,40 @@ ctx.canvas.parentNode.style.width = '620px';
 
 // patientsList.innerHTML += 'Hello';
 
+let emailReport = (el) => {
+  var userID = auth.currentUser.uid;
+  console.log("Email report Clicked : "+ el.id + "Doctor Id : "+userID);
+  var pID = el.id;
+  var dest = "tirthgpatel.27@gmail.com";
+  var destUrl = `https://us-central1-pdpu-medical-website.cloudfunctions.net/sendMail?dest=${dest}&dID=${userID}&pID=${pID}`;
+  // emailSend.setAttribute("href",destUrl);
+  // document.body.appendChild(emailSend);
+  // emailSend.click();
+  // document.location.href = destUrl;
+  fetch(destUrl).then(
+  function(response) {
+    if (response.status === 200) {
+      console.log('Looks like there was no problem. Status Code: ' +
+        response.status);
+        toastr.success('', 'Email Report Sent', {timeOut: 1400, closeButton : false, progressBar : true})
+
+      return;
+        }
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :', err);
+      toastr.error('', 'Couldn\'t Sent Email', {timeOut: 1400, closeButton : false, progressBar : true})
+
+    });
+
+
+};
+
 auth.onAuthStateChanged(user2 => {
   if (user2) {
     console.log(user2.email);
+
 
     db.collection(`doctors/${user2.uid}/patients`).onSnapshot(snap => {
       console.log("Total PATIENTS : "+snap.size);
@@ -68,7 +99,7 @@ auth.onAuthStateChanged(user2 => {
                         <span><b>${dName}</b></span>
                     </div>
                 </div>
-                <button class="btn blue waves-effect" id=${data.patientID}>Email Report</button>
+                <button class="btn blue waves-effect" id=${data.patientID} onclick="emailReport(this)">Email Report</button>
             </div>`;
             patientReport.innerHTML += html;
             count+=1;
@@ -134,6 +165,8 @@ auth.onAuthStateChanged(user2 => {
             // }
         }
     });
+
+
 
   }
   else{

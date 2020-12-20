@@ -22,6 +22,23 @@ var predict2Edit = document.querySelector('#predict2Edit');
 
 // -------------------------
 
+// messaging.requestPermission().then(() => {
+//         console.log("Permission Granted");
+//         // console.log(message.getToken());
+//         return messaging.getToken();
+//       }).then((token) => {
+//         // sendTokenToServer(token);
+//         // updateUIForPushEnabled(token);
+//         console.log("Token is : "+token);
+//       }).catch((err) => {
+//         console.log("Error getting permission" + err.message);
+//       })
+
+
+//         messaging.onMessage((payload) => {
+//             console.log('onMessage : '+payload);
+//         })
+
 // setup materialize components
 document.addEventListener('DOMContentLoaded', function() {
   var modals = document.querySelectorAll('.modal');
@@ -637,6 +654,42 @@ logout4.addEventListener('click', (e) => {
 auth.onAuthStateChanged(user1 => {
   if (user1) {
     console.log("Logged In user (user.js)" + user1.email);
+    console.log("Logged In user (user.js)" + user1.uid);
+
+
+    messaging.requestPermission().then(() => {
+        console.log("Permission Granted");
+        // console.log(message.getToken());
+        return messaging.getToken({
+            vapidKey: "BKEJoaeHf4tYKMz1NFB6sMJslO4x3cUBRfa5NJyrTmnjlyKPOmrxZecyGki17AR9jVj8X9OJ1Y-uKZp_rftoTw8"
+        });
+    }).then((token) => {
+        // sendTokenToServer(token);
+        // updateUIForPushEnabled(token);
+        console.log("Token is : " + token);
+        const data = {
+          email : user1.email,
+          token : token,
+          timestamp: firebase.firestore.Timestamp.now()
+        }
+        console.log(data);
+        db.collection("fcm").doc().set(data,{merge : true}).then(() => {
+          console.log("Token Added");
+        });
+        // db.doc(`fcm/${user1.email}`).set(data,{merge : true}).then(() => {
+        //
+        //   // alert("Patient Details Updated!!");
+        //   toastr.success('', 'Token Detials Added!', {timeOut: 1400, closeButton : false, progressBar : true})
+        //
+        // });
+    }).catch((err) => {
+        console.log("Error getting permission" + err.message);
+    })
+
+
+    messaging.onMessage((payload) => {
+        console.log('onMessage script tag : ' + payload);
+    })
 
     //Greeting Message
     db.doc(`doctors/${user1.uid}`).onSnapshot(snap => {
@@ -662,6 +715,7 @@ auth.onAuthStateChanged(user1 => {
     });
 
     // console.log("-- Calling Patients Collection ---");
+
     db.collection(`doctors/${user1.uid}/patients`).orderBy('timestamp','desc').onSnapshot(snap => {
       // console.log('----- Patient Data ----');
       //console.log(snap);

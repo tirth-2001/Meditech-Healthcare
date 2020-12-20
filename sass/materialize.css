@@ -2624,7 +2624,7 @@ a {
 }
 
 /* 2dp elevation modified*/
-.z-depth-1, nav, .card-panel, .card, #login_section .loginCard, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
+.z-depth-1, nav, .card-panel, .card, #dashboard .doctorNameHeader, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav, #navbar-main {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
@@ -2635,7 +2635,7 @@ a {
 }
 
 /* 6dp elevation modified*/
-.z-depth-2, #navbar-main {
+.z-depth-2 {
   -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
           box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
@@ -4730,7 +4730,7 @@ small {
   background-color: #fff;
 }
 
-.card, #login_section .loginCard {
+.card, #dashboard .doctorNameHeader {
   position: relative;
   margin: 0.5rem 0 1rem 0;
   background-color: #fff;
@@ -4741,79 +4741,79 @@ small {
   border-radius: 2px;
 }
 
-.card .card-title, #login_section .loginCard .card-title {
+.card .card-title, #dashboard .doctorNameHeader .card-title {
   font-size: 24px;
   font-weight: 300;
 }
 
-.card .card-title.activator, #login_section .loginCard .card-title.activator {
+.card .card-title.activator, #dashboard .doctorNameHeader .card-title.activator {
   cursor: pointer;
 }
 
-.card.small, #login_section .small.loginCard, .card.medium, #login_section .medium.loginCard, .card.large, #login_section .large.loginCard {
+.card.small, #dashboard .small.doctorNameHeader, .card.medium, #dashboard .medium.doctorNameHeader, .card.large, #dashboard .large.doctorNameHeader {
   position: relative;
 }
 
-.card.small .card-image, #login_section .small.loginCard .card-image, .card.medium .card-image, #login_section .medium.loginCard .card-image, .card.large .card-image, #login_section .large.loginCard .card-image {
+.card.small .card-image, #dashboard .small.doctorNameHeader .card-image, .card.medium .card-image, #dashboard .medium.doctorNameHeader .card-image, .card.large .card-image, #dashboard .large.doctorNameHeader .card-image {
   max-height: 60%;
   overflow: hidden;
 }
 
-.card.small .card-image + .card-content, #login_section .small.loginCard .card-image + .card-content, .card.medium .card-image + .card-content, #login_section .medium.loginCard .card-image + .card-content, .card.large .card-image + .card-content, #login_section .large.loginCard .card-image + .card-content {
+.card.small .card-image + .card-content, #dashboard .small.doctorNameHeader .card-image + .card-content, .card.medium .card-image + .card-content, #dashboard .medium.doctorNameHeader .card-image + .card-content, .card.large .card-image + .card-content, #dashboard .large.doctorNameHeader .card-image + .card-content {
   max-height: 40%;
 }
 
-.card.small .card-content, #login_section .small.loginCard .card-content, .card.medium .card-content, #login_section .medium.loginCard .card-content, .card.large .card-content, #login_section .large.loginCard .card-content {
+.card.small .card-content, #dashboard .small.doctorNameHeader .card-content, .card.medium .card-content, #dashboard .medium.doctorNameHeader .card-content, .card.large .card-content, #dashboard .large.doctorNameHeader .card-content {
   max-height: 100%;
   overflow: hidden;
 }
 
-.card.small .card-action, #login_section .small.loginCard .card-action, .card.medium .card-action, #login_section .medium.loginCard .card-action, .card.large .card-action, #login_section .large.loginCard .card-action {
+.card.small .card-action, #dashboard .small.doctorNameHeader .card-action, .card.medium .card-action, #dashboard .medium.doctorNameHeader .card-action, .card.large .card-action, #dashboard .large.doctorNameHeader .card-action {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.card.small, #login_section .small.loginCard {
+.card.small, #dashboard .small.doctorNameHeader {
   height: 300px;
 }
 
-.card.medium, #login_section .medium.loginCard {
+.card.medium, #dashboard .medium.doctorNameHeader {
   height: 400px;
 }
 
-.card.large, #login_section .large.loginCard {
+.card.large, #dashboard .large.doctorNameHeader {
   height: 500px;
 }
 
-.card.horizontal, #login_section .horizontal.loginCard {
+.card.horizontal, #dashboard .horizontal.doctorNameHeader {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.card.horizontal.small .card-image, #login_section .horizontal.small.loginCard .card-image, .card.horizontal.medium .card-image, #login_section .horizontal.medium.loginCard .card-image, .card.horizontal.large .card-image, #login_section .horizontal.large.loginCard .card-image {
+.card.horizontal.small .card-image, #dashboard .horizontal.small.doctorNameHeader .card-image, .card.horizontal.medium .card-image, #dashboard .horizontal.medium.doctorNameHeader .card-image, .card.horizontal.large .card-image, #dashboard .horizontal.large.doctorNameHeader .card-image {
   height: 100%;
   max-height: none;
   overflow: visible;
 }
 
-.card.horizontal.small .card-image img, #login_section .horizontal.small.loginCard .card-image img, .card.horizontal.medium .card-image img, #login_section .horizontal.medium.loginCard .card-image img, .card.horizontal.large .card-image img, #login_section .horizontal.large.loginCard .card-image img {
+.card.horizontal.small .card-image img, #dashboard .horizontal.small.doctorNameHeader .card-image img, .card.horizontal.medium .card-image img, #dashboard .horizontal.medium.doctorNameHeader .card-image img, .card.horizontal.large .card-image img, #dashboard .horizontal.large.doctorNameHeader .card-image img {
   height: 100%;
 }
 
-.card.horizontal .card-image, #login_section .horizontal.loginCard .card-image {
+.card.horizontal .card-image, #dashboard .horizontal.doctorNameHeader .card-image {
   max-width: 50%;
 }
 
-.card.horizontal .card-image img, #login_section .horizontal.loginCard .card-image img {
+.card.horizontal .card-image img, #dashboard .horizontal.doctorNameHeader .card-image img {
   border-radius: 2px 0 0 2px;
   max-width: 100%;
   width: auto;
 }
 
-.card.horizontal .card-stacked, #login_section .horizontal.loginCard .card-stacked {
+.card.horizontal .card-stacked, #dashboard .horizontal.doctorNameHeader .card-stacked {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4827,26 +4827,26 @@ small {
   position: relative;
 }
 
-.card.horizontal .card-stacked .card-content, #login_section .horizontal.loginCard .card-stacked .card-content {
+.card.horizontal .card-stacked .card-content, #dashboard .horizontal.doctorNameHeader .card-stacked .card-content {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 
-.card.sticky-action .card-action, #login_section .sticky-action.loginCard .card-action {
+.card.sticky-action .card-action, #dashboard .sticky-action.doctorNameHeader .card-action {
   z-index: 2;
 }
 
-.card.sticky-action .card-reveal, #login_section .sticky-action.loginCard .card-reveal {
+.card.sticky-action .card-reveal, #dashboard .sticky-action.doctorNameHeader .card-reveal {
   z-index: 1;
   padding-bottom: 64px;
 }
 
-.card .card-image, #login_section .loginCard .card-image {
+.card .card-image, #dashboard .doctorNameHeader .card-image {
   position: relative;
 }
 
-.card .card-image img, #login_section .loginCard .card-image img {
+.card .card-image img, #dashboard .doctorNameHeader .card-image img {
   display: block;
   border-radius: 2px 2px 0 0;
   position: relative;
@@ -4857,7 +4857,7 @@ small {
   width: 100%;
 }
 
-.card .card-image .card-title, #login_section .loginCard .card-image .card-title {
+.card .card-image .card-title, #dashboard .doctorNameHeader .card-image .card-title {
   color: #fff;
   position: absolute;
   bottom: 0;
@@ -4866,37 +4866,37 @@ small {
   padding: 24px;
 }
 
-.card .card-content, #login_section .loginCard .card-content {
+.card .card-content, #dashboard .doctorNameHeader .card-content {
   padding: 24px;
   border-radius: 0 0 2px 2px;
 }
 
-.card .card-content p, #login_section .loginCard .card-content p {
+.card .card-content p, #dashboard .doctorNameHeader .card-content p {
   margin: 0;
 }
 
-.card .card-content .card-title, #login_section .loginCard .card-content .card-title {
+.card .card-content .card-title, #dashboard .doctorNameHeader .card-content .card-title {
   display: block;
   line-height: 32px;
   margin-bottom: 8px;
 }
 
-.card .card-content .card-title i, #login_section .loginCard .card-content .card-title i {
+.card .card-content .card-title i, #dashboard .doctorNameHeader .card-content .card-title i {
   line-height: 32px;
 }
 
-.card .card-action, #login_section .loginCard .card-action {
+.card .card-action, #dashboard .doctorNameHeader .card-action {
   background-color: inherit;
   border-top: 1px solid rgba(160, 160, 160, 0.2);
   position: relative;
   padding: 16px 24px;
 }
 
-.card .card-action:last-child, #login_section .loginCard .card-action:last-child {
+.card .card-action:last-child, #dashboard .doctorNameHeader .card-action:last-child {
   border-radius: 0 0 2px 2px;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating), #login_section .loginCard .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating), #dashboard .doctorNameHeader .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: #ffab40;
   margin-right: 24px;
   -webkit-transition: color .3s ease;
@@ -4904,11 +4904,11 @@ small {
   text-transform: uppercase;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover, #login_section .loginCard .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover, #dashboard .doctorNameHeader .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
   color: #ffd8a6;
 }
 
-.card .card-reveal, #login_section .loginCard .card-reveal {
+.card .card-reveal, #dashboard .doctorNameHeader .card-reveal {
   padding: 24px;
   position: absolute;
   background-color: #fff;
@@ -4921,7 +4921,7 @@ small {
   display: none;
 }
 
-.card .card-reveal .card-title, #login_section .loginCard .card-reveal .card-title {
+.card .card-reveal .card-title, #dashboard .doctorNameHeader .card-reveal .card-title {
   cursor: pointer;
   display: block;
 }
@@ -9016,7 +9016,7 @@ input[type=range]::-ms-thumb {
   }
 }
 
-.displayRow, #login_section, #login_section .loginCard, #login_section .loginCard .lgActive, #login_section .loginCard .lgActive form, #login_section .loginCard .lgActive form .forgPass, #login_section .loginCard .lgBtn, #dashboard .dashboard .modal .modal-content .mainModalCnt, #dashboard .dashboard .modal .modal-content .mainModalCnt .modalProgressBar, #dashboard .dashboard .modal .modal-content .mainModalCnt .modalProgressBar .progImg, #dashboard .dashboard .modal .modal-content .mainModalCnt form#modal2Form .isthisOutCorrect, #dashboard .dashboard .modal .modal-content .mainModalCnt .nextBtns, #dashboard .dashboard .floatingAddBtn, #dashboard .dashboard .card_container, #dashboard .dashboard .card_container .ptCard, #dashboard .dashboard .card_container .ptCard .mainHeader, #dashboard .dashboard .card_container .ptCard .ptCardEdit, .top_cards, .top_cards .row_top_cards, .top_cards .row_top_cards .analytic_card, .top_cards .row_top_cards .analytic_card .anaIcon, .bottom_cards, .bottom_cards .card_right .pat_data_table, .bottom_cards .card_right .pat_data_table .pat_d_t_header, .bottom_cards .card_right .pat_data_table .pat_d_t_data .row_data, .bottom_cards .card_right .pat_data_table .pat_d_t_data .row_data .d_t_name_full, #btm_sheet_modal .modal-content, #btm_sheet_modal .modal-content .bt_row, #btm_sheet_modal .modal-content .bt_row .temp_row, #btm_sheet_modal .modal-content .bt_row .temp_row .bt_icon, .customPreloader {
+.displayRow, #login_section, #login_section .loginCard, #login_section .loginCard .lgActive, #login_section .loginCard .lgActive form, #login_section .loginCard .lgActive form .forgPass, #login_section .loginCard .lgBtn, #dashboard .dashboard .modal .modal-content .mainModalCnt, #dashboard .dashboard .modal .modal-content .mainModalCnt .modalProgressBar, #dashboard .dashboard .modal .modal-content .mainModalCnt .modalProgressBar .progImg, #dashboard .dashboard .modal .modal-content .mainModalCnt form#modal2Form .isthisOutCorrect, #dashboard .dashboard .modal .modal-content .mainModalCnt .nextBtns, #dashboard .dashboard .floatingAddBtn, #dashboard .dashboard .card_container, #dashboard .dashboard .card_container .ptCard, #dashboard .dashboard .card_container .ptCard .mainHeader, #dashboard .dashboard .card_container .ptCard .ptCardEdit, .top_cards, .top_cards .row_top_cards, .top_cards .row_top_cards .analytic_card, .top_cards .row_top_cards .analytic_card .anaIcon, .bottom_cards, .bottom_cards .card_right .pat_data_table, .bottom_cards .card_right .pat_data_table .pat_d_t_header, .bottom_cards .card_right .pat_data_table .pat_d_t_data .row_data, .bottom_cards .card_right .pat_data_table .pat_d_t_data .row_data .d_t_name_full, #btm_sheet_modal .modal-content, #btm_sheet_modal .modal-content .bt_row, #btm_sheet_modal .modal-content .bt_row .temp_row, #btm_sheet_modal .modal-content .bt_row .temp_row .bt_icon, .customPreloader, #mainSectionAdmin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9050,9 +9050,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #006edd;
 }
 
+body#loginBodyMain {
+  background: url("../images/animation_500_kit31v5x.gif") no-repeat;
+  background-color: transparent !important;
+}
+
 #navbar-main {
-  background-color: #e6e6e6;
-  border-radius: 0 0 30px 30px;
+  background-color: #f3f3f3;
+  border-radius: 0 0 10px 10px;
 }
 
 #navbar-main .nav-wrapper .sidenav-trigger .material-icons {
@@ -9104,7 +9109,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 #login_section .loginCard {
-  border: 1pt #b1b1b1 solid;
+  border: 0;
+  background-color: white;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -9114,9 +9120,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
           justify-content: space-between;
   padding: 0px 0;
   height: auto;
-  border-radius: 20px;
+  border-radius: 5px;
   overflow: hidden;
   margin: 0 10px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #login_section .loginCard .lgActive {
@@ -9127,6 +9137,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 #login_section .loginCard .lgActive form {
@@ -9240,6 +9252,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
   transform: translateY(-14px) scale(0.8);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
+}
+
+#dashboard .doctorNameHeader {
+  font-size: 1.64rem;
+  line-height: 110%;
+  padding: 15px 10px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
 }
 
 #dashboard .dashboard .modal {
@@ -9564,6 +9585,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
   height: 240px;
   border-radius: 20px;
   overflow: hidden;
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 #dashboard .dashboard .card_container .ptCard .mainHeader {
@@ -9976,5 +9999,33 @@ textarea.materialize-textarea:focus:not([readonly]) {
   opacity: 0;
   -webkit-transition: 1000ms;
   transition: 1000ms;
+}
+
+#mainSectionAdmin {
+  padding: 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 984px) {
+  #mainSectionAdmin {
+    padding: 20px;
+  }
+}
+
+#mainSectionAdmin table {
+  margin-top: 50px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#mainSectionAdmin table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#mainSectionAdmin table tbody #userKey {
+  width: 40%;
 }
 /*# sourceMappingURL=materialize.css.map */

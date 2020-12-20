@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Doctor's Dashboard</title>
     <link rel="stylesheet" href="sass/materialize.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -89,7 +89,7 @@
 
     <ul class="sidenav" id="mobile-demo">
         <li><a href="user.html">Home</a></li>
-        <li><a href="#">All Patients</a></li>
+        <li><a href="patient.html">All Patients</a></li>
         <li><a data-target="myProfileModal" class="modal-trigger">My Profile</a></li>
         <li id="logout-3"><a href="login.html">Logout</a></li>
     </ul>
@@ -187,7 +187,7 @@
     </div>
 
     <section class="section container" id="dashboard">
-        <h5 class="black-text">Welcome <b><span id="welcome"></span></b></h5>
+        <div class="doctorNameHeader black-text">Welcome <b><span id="welcome"></span></b></div>
         <div class="dashboard">
             <button data-target="patientForm"
                 class="btn-floating right btn-large waves-effect waves-light blue darken-1 floatingAddBtn modal-trigger">
@@ -469,7 +469,8 @@
                             </div>
                             <div class="row aiOutRow">
                                 <span class="aiOutHeader">Disease Prediction :</span>
-                                <span class="aiOutput green-text" id="aiOutputDisease">'Auto output based on prediction'</span>
+                                <span class="aiOutput green-text" id="aiOutputDisease">'Auto output based on
+                                    prediction'</span>
                             </div>
                             <div class="nextBtns">
                                 <button class="btn waves-effect modal-trigger" data-target="patientForm1"
@@ -541,7 +542,7 @@
                     </div>
                     <a class="waves-effect waves-light btn-small ptCardEdit">Edit</a>
                 </div> -->
-                <div class="card ptCard z-depth-2">
+                <!-- <div class="card ptCard z-depth-2">
                     <div class="mainHeader blue lighten-5">
                         <span class="ptCardHeader">
                             Raj Patel
@@ -559,7 +560,7 @@
                         <span class="checkupDate">31/10/20</span>
                     </div>
                     <a class="waves-effect waves-light btn-small ptCardEdit">Edit</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -655,9 +656,11 @@
 
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-performance.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-messaging.js"></script>
     <script>
         // Initialize Firebase
         // Your web app's Firebase configuration
@@ -672,11 +675,13 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        var perf = firebase.performance();
 
         // make auth and firestore references
         const auth = firebase.auth();
         const db = firebase.firestore();
         const stor = firebase.storage();
+        const messaging = firebase.messaging();
 
         // update firestore settings
         db.settings({
@@ -684,10 +689,39 @@
         });
     </script>
 
+    <!-- <script src="js/firebase-messaging-sw.js"></script> -->
+
+
+    <!-- <script type="text/javascript">
+        messaging.requestPermission().then(() => {
+            console.log("Permission Granted");
+            // console.log(message.getToken());
+            return messaging.getToken({
+                vapidKey: "BKEJoaeHf4tYKMz1NFB6sMJslO4x3cUBRfa5NJyrTmnjlyKPOmrxZecyGki17AR9jVj8X9OJ1Y-uKZp_rftoTw8"
+            });
+        }).then((token) => {
+            // sendTokenToServer(token);
+            // updateUIForPushEnabled(token);
+            console.log("Token is : " + token);
+        }).catch((err) => {
+            console.log("Error getting permission" + err.message);
+        })
+
+
+        messaging.onMessage((payload) => {
+            console.log('onMessage script tag : ' + payload);
+        })
+    </script> -->
+
     <!-- Tensorflow Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     <!-- <script src="js/tf.min.js.map"> </script> -->
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+    <script src="https://account.snatchbot.me/script.js"></script>
+    <script>
+        window.sntchChat.Init(144133)
+    </script>
 
     <!-- Local Scripts -->
 

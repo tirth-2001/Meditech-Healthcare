@@ -52,20 +52,25 @@
 // Custom Css Starts Here
 
 
-
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #006edd;
     -webkit-box-shadow: 0 1px 0 0 #006edd;
     box-shadow: 0 1px 0 0 #006edd;
 }
 
+// Body css
+
+body#loginBodyMain{
+    background: url('../images/animation_500_kit31v5x.gif') no-repeat ;
+    background-color: transparent !important;
+}
 
 // Navigaiton Bar
 
 #navbar-main{
-    @extend .z-depth-2;
-    background-color: rgb(230, 230, 230);
-    border-radius: 0 0 30px 30px;
+    @extend .z-depth-1;
+    background-color: rgb(243, 243, 243);
+    border-radius: 0 0 10px 10px;
 
     .nav-wrapper{
         .sidenav-trigger .material-icons{
@@ -119,22 +124,24 @@ transform-origin: 0 0 !important;
     }
 
     .loginCard{
-        @extend .card,.displayRow;
-        border: 1pt rgb(177, 177, 177) solid;
+        @extend .displayRow;
+        border: 0;
+        background-color: white;
         flex-direction: column;
         justify-content: space-between;
         padding: 0px 0;
         height: auto;
-        border-radius: 20px;
+        border-radius: 5px;
         overflow: hidden;
         margin: 0 10px;
+        transition: 1s;
         // width: 50%;
-
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
         .lgActive{
             @extend .displayRow;
             flex-direction: column;
             justify-content: space-between;
-
+            transition: 1s;
             form{
                 @extend .displayRow,.container;
                 padding: 0 20px;
@@ -233,6 +240,14 @@ transform-origin: 0 0 !important;
 // Dashboard Page Styling Starts Here
 
 #dashboard{
+    .doctorNameHeader{
+        @extend .card;
+        font-size: 1.64rem;
+        line-height: 110%;
+        padding: 15px 10px;
+        border-radius: 8px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+    }
     .dashboard{
         .modal{
             top: 5% !important;
@@ -502,6 +517,7 @@ transform-origin: 0 0 !important;
                 height: 240px;
                 border-radius: 20px;
                 overflow: hidden;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
                 .mainHeader{
                     width: 100%;
                     height: 100px;
@@ -847,4 +863,29 @@ transform-origin: 0 0 !important;
 .customPreloader.disabledCustomPreloader{
     opacity: 0;
     transition: 1000ms;
+}
+
+
+// Admin Page styling
+#mainSectionAdmin{
+    @extend .displayRow;
+    padding: 50px;
+    flex-direction: column;
+    @media screen and (max-width:984px){
+        padding: 20px;
+    }
+    table{
+        margin-top: 50px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        tbody{
+            tr{
+                border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            }
+            #userKey{
+                // overflow-y: scroll;
+                // height: 60px;
+                width: 40%;
+            }
+        }
+    }
 }
